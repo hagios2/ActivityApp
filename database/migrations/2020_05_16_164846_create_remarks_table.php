@@ -15,7 +15,7 @@ class CreateRemarksTable extends Migration
     {
         Schema::create('remarks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('activity_id')->unsigned();
+            $table->integer('activity_history_id')->unsigned();
             $table->text('remarks');
             $table->timestamps();
         });
