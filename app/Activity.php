@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = ['request_ip', 'user_id', 'activity', 'status'];
 
     public function user()
     {
@@ -21,5 +21,11 @@ class Activity extends Model
     public function history()
     {
         return $this->belongsTo('App\ActivityHistory');
+    }
+
+
+    public function addActivity($activity)
+    {
+        return $this->create($activity);
     }
 }

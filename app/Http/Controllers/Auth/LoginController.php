@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -36,4 +38,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+    {
+        return view('starpages.login');
+    }
+
+
+    public function authenticate(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'isActive' => true], $request->remember)) {
+
+
+            auth()->user()->update(['last_login' => now()]);
+          
+            return redirect()->intended('dashboard');
+        }
+
+        
+        return back()->with('error', 'These credentials do not match our records.');
+    }
+
+
+  /*   public function login()
+    {
+        return view('starpages.login');
+    } */
 }

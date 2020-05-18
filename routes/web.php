@@ -14,3 +14,26 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* Auth::routes();  */
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+
+Route::post('/login', 'Auth\LoginController@authenticate');
+
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/dashboard', 'HomeController@index')->name('home');
+
+Route::fallback(function () {
+    
+    return view('starpages.404');
+});
+
+
+
+
+/* 
+*
+* Routes for SuperAdmin
+*/
+Route::get('/add-new-member', 'SuperAdminController@addNewMember')->name('new.member');

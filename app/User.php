@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'last_login', 'phone', 'isActive', 'role'
     ];
 
     /**
@@ -27,6 +27,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $date = ['last_login'];
 
     /**
      * The attributes that should be cast to native types.
@@ -47,5 +49,11 @@ class User extends Authenticatable
     public function history()
     {
         return $this->hasMany('App\ActivityHistory');
+    }
+
+
+    public function addActivity($activity)
+    {
+        return $this->activity()->create($activity);
     }
 }
