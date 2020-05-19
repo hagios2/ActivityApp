@@ -88,9 +88,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Internship Coordinating and Monitoring System">
 
-    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
-    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -181,7 +178,7 @@
               <h6 class="collapse-header">Activities:</h6>
               <a class="collapse-item" href="/create-activity"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>New Activities</a>
              {{--   <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a> --}}
-              <a class="collapse-item" href="/view-activity"> <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Logs</a>
+              <a class="collapse-item" href="/view-daily-activity"> <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Logs</a>
           </div>
           </div>
       </li>
@@ -711,7 +708,7 @@
 					<p>When you're backed against the wall, break the god damn thing down.</p>
 				</li>
  */
-    });
+
 
  </script>
  
@@ -760,6 +757,11 @@
         @yield('content')
  
     @endguest   
+
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
  
 </body>
 </html>

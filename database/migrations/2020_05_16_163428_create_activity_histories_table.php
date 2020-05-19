@@ -16,9 +16,10 @@ class CreateActivityHistoriesTable extends Migration
         Schema::create('activity_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
-            $table->string('activity_id')->unsigned();
+            $table->integer('activity_id')->unsigned();
             $table->string('request_ip');
-            $table->string('activity_update');
+            $table->string('activity_type');
+            $table->text('activity_remarks')->nullable();
             $table->timestamps();
         });
     }

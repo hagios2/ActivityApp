@@ -8,24 +8,30 @@ class Activity extends Model
 {
     protected $fillable = ['request_ip', 'user_id', 'activity', 'status'];
 
+
+
     public function user()
     {
+
         return $this->belongsTo('App\User');
+
     }
 
-    public function remarks()
-    {
-        return $this->hasManyThrough('App\Remark', 'App\ActivityHistory');
-    }
+
 
     public function history()
     {
-        return $this->belongsTo('App\ActivityHistory');
+
+        return $this->hasMany('App\ActivityHistory');
+
     }
 
 
-    public function addActivity($activity)
+
+    public function addActivityHistory($activityHistory)
     {
-        return $this->create($activity);
+
+        return $this->history()->create($activityHistory);
+        
     }
 }
