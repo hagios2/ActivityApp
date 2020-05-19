@@ -2,18 +2,17 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">View Daily Activities</li>
-        </ol>
-    </nav>
 
       <!-- Page Heading -->
       {{-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>  --}}
       <div class="row">
-        <div class="col-sm-9 col-xs-9 col-md-9 col-lg-10"></div>
+        <div class="col-sm-6 col-xs-6 col-md-6 col-lg-8"></div>
       <a class="btn btn-outline-primary" href="/create-activity">New Activity</a>
+      
+      &nbsp; <a id="pending" class="btn btn-outline-info" href="#">View Pending Activities</a>
+
+      &nbsp; <a id="daily" style="display: none;" class="btn btn-outline-info" href="#">View daily Activities</a>
+
       </div> <br>
       {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
@@ -68,8 +67,6 @@
 
 <script>
 
-
-
    $.ajax({
 
     url: '/view-activity', 
@@ -123,7 +120,7 @@
                     `+hist+`
                     <td>`+activity.updated_at+`</td>
                     <td>`+activity.updated_at+`</td>
-                    <td><a class="btn btn-primary" href="">Details</a></td>
+                    <td><a class="btn btn-primary" href="/view/`+activity.id+`/details">Details</a></td>
               </tr> `;
 
               $('#tb').append(dom);
@@ -131,12 +128,11 @@
             });
 
           });
-            
-           
 
       }
 
     });
+
 </script> 
 
 

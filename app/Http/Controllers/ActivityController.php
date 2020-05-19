@@ -114,8 +114,10 @@ class ActivityController extends Controller
 
             'user_id' => auth()->user()->id,
 
-            'activity_remarks' => $request->remarks ?? null
+            'activity_remarks' => 'Updated activity status to '. $request->status
         ]);
+
+        return back()->with('success', 'Activity status updated successfuly');
         
     }
 
@@ -159,23 +161,11 @@ class ActivityController extends Controller
 
    public function viewActivityHistory(Activity $activity)
    {
-       $attribute = [
 
-            'activity' => $activity,
+        return view('activity_history', compact('activity'));
 
-            'history' => $activity->history->map(function($activityhistory){
-
-                return $activityhistory->user;
-            }),
-
-            'activity_creator' => $activity->user,
-
-        ];
-
-        return new ActivityResource($attribute);
         
    }
 
 
-   
 }

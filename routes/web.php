@@ -30,6 +30,8 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
+Route::get('/dashboard-stats', 'DashboardStatsController@activityStats');
+
 Route::get('/create-activity', 'ActivityController@createActivity');
 
 Route::post('/create-activity', 'ActivityController@storeActivity');
@@ -43,6 +45,10 @@ Route::get('/view-activity', 'ActivityController@viewAllDailyActivity');
 Route::get('/view-daily-activity', 'ActivityController@viewActivityLog');
 
 Route::get('/view/{activity}/details', 'ActivityController@viewActivityHistory');
+
+Route::get('/view-activity/details', 'ActivityController@viewhistory');
+
+Route::post('/toggle/{activity}/status', 'ActivityController@updateActivityStatus');
 
 Route::fallback(function () {
     
