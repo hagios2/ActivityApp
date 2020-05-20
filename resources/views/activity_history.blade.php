@@ -120,6 +120,13 @@
                   </tbody>
                 </table>
               </div>
+            
+              <div class="row">
+
+                <div class="col-md-11 col-lg-11"></div><a href="/view-daily-activity" class="btn btn-primary">Back</a>
+
+              </div>
+              
             </div>
           </div>
 

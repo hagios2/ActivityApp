@@ -17,21 +17,37 @@ class ActivityController extends Controller
     }
 
 
-    public function viewAllDailyActivity()
+    public function viewAllDailyActivity(Request $request)
     {
+        
         $activity = Activity::orderBy('created_at', 'DESC')->get();
 
-        $dailyActivities = $activity->groupBy(function($timestamp){
+        if($request->has('param'))
+        {
 
-            return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp->created_at)->format('Y-m-d');
+            $dailyActivities = $activity->where('status', $request->param)->groupBy(function($timestamp){
 
-        });
+                return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp->created_at)->format('Y-m-d');
+    
+            });
+
+        
+        }else{
+ 
+            $dailyActivities = $activity->groupBy(function($timestamp){
+
+                return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp->created_at)->format('Y-m-d');
+
+            });
+
+
+        }
 
         /* dailyActivity->his */
 
         /* dd($dailyActivities); */
 
-       $dailyActivityCollection = \collect();
+      /*  $dailyActivityCollection = \collect(); */
         
         foreach($dailyActivities as $dailyItems)
         {

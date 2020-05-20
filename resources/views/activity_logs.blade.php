@@ -34,7 +34,7 @@
                   <th>Created By</th>
                   <th>Created on</th>
                   <th>Recent Update</th>
-                  <th>Recent Update By</th>
+                  <th>Updated By</th>
                   <th>Updated On</th>
                   <th>Action</th>
                 </tr>
@@ -67,14 +67,31 @@
 
 <script>
 
+  getActivities('pending')
+
+  function getActivities(request = null){
+
+    var url;
+
+    if(request == null)
+    {
+      url = '/view-activity'
+    
+    }else{
+
+      url = '/view-activity?param='+request
+
+    }
+
    $.ajax({
 
-    url: '/view-activity', 
+    url: url, 
  
     }).done(function(data){
 
       let dom = ``;
       
+      console.log(data);
 
       if(jQuery.isEmptyObject(data))
       { 
@@ -92,7 +109,7 @@
 
           $('#activity-table').show();
 
-          $('#tb').html(); //remove clear content
+          $('#tb').html(''); //remove clear content
 
           $.each(data, function(i, activitylist){
 
@@ -132,6 +149,33 @@
       }
 
     });
+
+  }
+
+  $('#pending').click(function(e){
+
+    e.preventDefault();
+
+    $('#pending').hide();
+
+    $('#daily').show()
+
+    getActivities('pending')
+
+  });
+
+
+  $('#daily').click(function(e){
+
+    e.preventDefault();
+
+    $('#daily').hide();
+
+    $('#pending').show()
+
+    getActivities()
+
+  });
 
 </script> 
 
