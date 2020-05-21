@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* auth routes  */
+/* custom auth routes  */
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
@@ -52,6 +52,8 @@ Route::get('/get/{activity}/history-range', 'ActivityHistoryController@customDur
 
 Route::post('/toggle/{activity}/status', 'ActivityController@updateActivityStatus');
 
+Route::get('/fetch/{history}/user', 'ActivityHistoryController@getHistoryUser');
+
 Route::fallback(function () {
     
     return view('starpages.404');
@@ -64,4 +66,8 @@ Route::fallback(function () {
 *
 * Routes for SuperAdmin
 */
-Route::get('/add-new-member', 'SuperAdminController@addNewMember')->name('new.member');
+Route::get('/add-new-personnel', 'SuperAdminController@showForm')->name('new.member');
+
+Route::post('/add-new-personnel', 'SuperAdminController@addNewMember');
+
+Route::get('/edit/{personnel}', 'SuperAdminController@addNewMember');

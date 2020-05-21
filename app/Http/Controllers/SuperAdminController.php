@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\NewMemberRequest;
-
-use App\Activity; 
+use App\Jobs\NewPersonnelsJob;
+use App\User;
 
 class SuperAdminController extends Controller
 {
@@ -15,13 +16,40 @@ class SuperAdminController extends Controller
     {
         //check if auth user has super admin role
 
-        $this->middleware('isSuperAdmin');
+ /*        $this->middleware('isSuperAdmin'); */
+    }
+
+
+    public function showForm()
+    {
+        return view('create_personnel');
     }
 
 
     public function addNewMember(NewMemberRequest $request)
     {
-        auth()->user()->addMember($request->all());
+
+        $password = Hash::make(str_random(8));
+
+        $newUser = User::create([
+
+            'password' => $password,
+
+            'isActive' => true,
+
+            'name' => $request->name,
+
+            'email' => $request->email,
+
+            'role' => $request->role,
+
+            'phone' => $request->phone
+
+        ]);
+
+        NewPersonnelsJob::dispatch($newUser, $password);
+
+        return back()->withSuccess('Added new Personnel successfully');
     }
 
 

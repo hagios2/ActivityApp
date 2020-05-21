@@ -25,13 +25,12 @@ class ActivityController extends Controller
         if($request->has('param'))
         {
 
-            $dailyActivities = $activity->where('status', $request->param)->groupBy(function($timestamp){
+            $dailyActivities = $activity->where('status', 'pending')->groupBy(function($timestamp){
 
                 return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp->created_at)->format('Y-m-d');
     
             });
 
-        
         }else{
  
             $dailyActivities = $activity->groupBy(function($timestamp){
@@ -39,7 +38,6 @@ class ActivityController extends Controller
                 return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp->created_at)->format('Y-m-d');
 
             });
-
 
         }
 

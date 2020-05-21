@@ -146,12 +146,12 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Personnel Details</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Are you sure you want to end your current session?</div>
+        <div class="modal-body" id="mbody"></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="/logout" onclick="event.preventDefault();
@@ -265,7 +265,7 @@
 
                                       `+ history.username + ` <br>
 
-                                      <a href="javascript:void(0)"  data-toggle="modal" data-target="#user">
+                                      <a href="javascript:void(0);" onclick="fetchUser(`+history.id +`)" data-toggle="modal" data-target="#user">
                                           <i class="fas fa-user-md fa-sm fa-fw mr-2 text-gray-400"></i> view
                                       </a> 
                                       
@@ -299,6 +299,24 @@
       });
 
       $('#tab').html(innerTable);  
+    }
+
+
+    function fetchUser(historyId)
+    {
+
+      console.log(historyId)
+        $.ajax({
+
+          url: '/fetch/'+ historyId +'/user'
+
+        }).done(function(data){
+
+            console.log(data);
+
+            $('#mbody').html();
+
+        });
     }
  
  </script> 

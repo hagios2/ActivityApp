@@ -51,9 +51,4 @@ class User extends Authenticatable
         return $this->hasMany('App\ActivityHistory');
     }
 
-
-    public function addActivity($activity)
-    {
-        return $this->activity()->create($activity);
-    }
 }

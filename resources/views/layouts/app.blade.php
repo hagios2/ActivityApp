@@ -72,13 +72,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo0" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Preference</span>
+          <span>User Preference</span>
         </a>
         <div id="collapseTwo0" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Preferences:</h6>
             <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-            <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> </a>
             <a class="collapse-item" href="forgot-password.html">Change Password</a>
           </div>
         </div>
@@ -113,8 +112,8 @@
             <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">SUPPORT TEAM:</h6>
-                <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Team Members</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> New Members</a>
+                <a class="collapse-item" href="/view-personnels"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> View Personnels</a>
+                <a class="collapse-item" href="/add-new-personnel"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> New Personnel</a>
 
             </div>
             </div>
@@ -225,7 +224,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}}<span>
-                <img class="img-profile rounded-circle" src="{{auth()->user()->avatar}}">
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60"{{-- {{auth()->user()->avatar}} --}}>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -272,7 +271,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-          <span>Copyright &copy; UENR INTERNSHIP {{date('Y')}}</span>
+          <span>Copyright &copy; Mpontu Activity App {{date('Y')}}</span>
           </div>
         </div>
       </footer>

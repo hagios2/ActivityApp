@@ -29,13 +29,9 @@ class NewMemberRequest extends FormRequest
 
             'email' => 'required|email|unique:users,email',
 
-            'password' => 'required',
-
             'role' => 'required|string',
 
-            'isActive' => 'required|boolean',
-
-            'phone' => 'required|numeric|max:10'
+            'phone' => 'required|string|max:10'
         ];
     }
 }
