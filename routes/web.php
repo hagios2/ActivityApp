@@ -46,7 +46,9 @@ Route::get('/view-daily-activity', 'ActivityController@viewActivityLog');
 
 Route::get('/view/{activity}/details', 'ActivityController@viewActivityHistory');
 
-Route::get('/view-activity/details', 'ActivityController@viewhistory');
+Route::get('/get/{activity}/history', 'ActivityHistoryController@getActivityHistory');
+
+Route::get('/get/{activity}/history-range', 'ActivityHistoryController@customDurationHistory');
 
 Route::post('/toggle/{activity}/status', 'ActivityController@updateActivityStatus');
 

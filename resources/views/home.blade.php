@@ -120,7 +120,7 @@
 
                   $('#percent').css({width:  data.complete_percent +"%"})
 
-                  $('#percent_in').html(data.complete_percent +"%")
+               /*    $('#percent_in').html(data.complete_percent +"%") */
 
                 }
 

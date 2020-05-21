@@ -180,8 +180,9 @@ class ActivityController extends Controller
 
         return view('activity_history', compact('activity'));
 
-        
    }
+
+
 
 
 }

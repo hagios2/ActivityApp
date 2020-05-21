@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Internship Coordinating and Monitoring System">
+    <meta name="description" content="Mpontu Interview Test">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="shortcut icon" href="{{ asset('/storage/images/logo.jpg') }}" />
 
-    <title>{{ 'Activity App' }}</title>
+    <title>{{ 'Activity Test App' }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -78,8 +78,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Preferences:</h6>
             <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-            <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
-            <a class="collapse-item" href="cards.html"> <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+            <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> </a>
+            <a class="collapse-item" href="forgot-password.html">Change Password</a>
           </div>
         </div>
       </li>
@@ -89,7 +89,7 @@
       <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Activity Tray</span>
+          <span>Activity Panel</span>
           </a>
           <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -112,60 +112,15 @@
             </a>
             <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">User Preferences:</h6>
-                <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
-                <a class="collapse-item" href="cards.html"> <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log</a>
+                <h6 class="collapse-header">SUPPORT TEAM:</h6>
+                <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Team Members</a>
+                <a class="collapse-item" href="cards.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> New Members</a>
+
             </div>
             </div>
         </li>
           
       @endif
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Student Pages:</h6>
-            
-            
-                <a class="collapse-item" aria-disabled="false" href="/internshipapply"><i class="fab fa-wpforms  fa-sm fa-fw mr-2 text-gray-400"></i> Apply</a>
-        {{--     <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a> --}}
-            <a class="collapse-item" href="forgot-password.html">Reset Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-{{--       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li> --}}
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -360,147 +315,8 @@
     </div>
   </div>
 
+    <script src="js/sb-admin-2.min.js"></script>
 
-  <script src="js/sb-admin-2.min.js"></script>
-
-
-
-
- <script>
-
- 
- /*  $('#msg_sub').prop('disabled', true);
-
-  $('#msg').keyup(function(e){
-
-    var text = $('#msg').val();
-
-    if(text != '')
-    {
-
-      $('#msg_sub').prop('disabled', false);
-
-      $("#msg_sub").unbind('click');
-
-      $('#msg_sub').click(function(){
-
-        $('#msg').val(null);
-
-        $('#msg_sub').prop('disabled', true);
-
-        sendMessage($.trim(text))
-
-      });
-
-
-      if(e.which == 13)
-      {
-        $('#msg').val(null);
-
-        $('#msg_sub').prop('disabled', true);
-
-        sendMessage($.trim(text))
-      } */
- 
-
-
- 
-  /* $('#msg').keydown(function(){
-
-
-    $('#msg').val(null);
-
-    $('#msg_sub').prop('disabled', true);
-
-    sendMessage($.trim(text))
-
-  });
- */
-
- /*  function sendMessage(message)
-  {
-      $.ajax({
-
-        url: '/send-message',
-        dataType: 'json',
-        data: {message: message},
-        method: 'POST',
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-
-      }).done(function(data){
-
-        console.log(data)
-
-        if(data.status == 'success')
-        {
-          $('<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
-          $('.message-input input').val(null);
-          $('.contact.active .preview').html('<span>You: </span>' + message);
-          $(".messages").animate({ scrollTop: $(document).height() }, "fast");
-
-        }else{
-
-
-
-        }
-
-
-      });
-
-  } */
-
-/* 
-  $.ajax({
-
-    url: '/get-messages',
-    dataType: 'json',
-    method: 'GET',
-
-    }).done(function(data){
-
-    console.log(data);
-
-    if(data != 'no message' )
-    {
-      $.each(data, function(i, data){
-
-        if(data.from_student == 1 && data.from_main_cord == null)
-        {
-          $('<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + data.message + '</p></li>').appendTo($('.messages ul'));
-          $('.message-input input').val(null);
-          $('.contact.active .preview').html('<span>You: </span>' + data.message);
-          $(".messages").animate({ scrollTop: $(document).height() }, "fast");
-        
-        }else if(data.from_student == null && data.from_main_cord == 1){
-
-          $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + data.message + '</p></li>').appendTo($('.messages ul'));
-          $('.message-input input').val(null);
-          $('.contact.active .preview').html('<span>You: </span>' + data.message);
-          $(".messages").animate({ scrollTop: $(document).height() }, "fast");
-
-        }
-
-      })
-
-    }else{
-
-      
-    } */
-
-   /*  <li class="sent">
-					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-					<p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
-				</li>
-				<li class="replies">
-					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-					<p>When you're backed against the wall, break the god damn thing down.</p>
-				</li>
- */
-
-
- </script>
- 
-        
     @endauth
 
     @guest
@@ -511,7 +327,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img  src="{{ asset('/storage/images/logo.jpg') }}" style="max-width:2rem; display:inline;" alt="" srcset="">
                         <strong>
-                            UENR Internship
+                            Activity App
                         </strong>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

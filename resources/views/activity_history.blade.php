@@ -63,8 +63,41 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Daily Activitys</h6>
             </div>
-    
+
             <div class="card-body">
+
+              <div  id="dateRange">
+
+                <label for="range">Search custom duration of Activity History</label>
+
+                <div class="row">
+
+                  <div class="form-group col-2">
+
+                    <input class="form-control" type="date" name="" id="dateFrom">
+
+                    <span id="dferror" style="color: red; display:none;"><small>From date is required</small></span>
+        
+                  </div>
+
+                  <div class="form-group col-2">
+
+                    <input class="form-control" type="date" name="" id="dateTo">
+
+                    <span id="dterror" style="color: red; display:none;"><small>To date is required</small></span>
+        
+                  </div>
+
+                  <div class="form-group col-2">
+
+                    <button class="btn btn-secondary" style="display: inline;" id='find'>Find</button>
+        
+                  </div>
+                  
+                </div>
+
+              </div>
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                   <thead>
@@ -78,47 +111,18 @@
                     </tr>
                   </thead>
            
-                  <tbody id="tb">
+                  <tbody id="tab">
 
-                    @foreach ($activity->history as $history)
-                        <tr>
-                            <td>
-                                <p>
-
-                                    {{ $history->user->name }} <br>
-
-                                    <a href="javascript:void(0)"  data-toggle="modal" data-target="#user">
-                                        <i class="fas fa-user-md fa-sm fa-fw mr-2 text-gray-400"></i> view
-                                    </a> 
-                                    
-                                </p>
-                            </td>
-
-                            <td>
-                                {{ $history->request_ip}}
-                            </td>
-
-                            <td>
-                                {{ $history->activity_type}}
-                            </td>
-
-                            <td>
-                                {!! $history->activity_remarks!!}
-                            </td>
-
-                            <td>
-                                {{  \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $history->created_at)->format('Y-m-d') }}
-                            </td>
-
-                            <td>
-                                {{  \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $history->created_at)->format('H:i:s') }}
-                            </td>
-
-                        </tr>
-                    @endforeach
-       
                   </tbody>
                 </table>
+
+                <div class="jumbotron text-center" id="emptab" style="display:none;">
+
+                  <h3>No History found for this activity</h3>
+    
+                  <p>You may want to add a new activity</p>
+    
+                  </div>
               </div>
             
               <div class="row">
@@ -167,72 +171,135 @@
   <script>
 
 
+    $.ajax({
 
-  /*   $.ajax({
- 
-     url: '/view-activity', 
-  
-     }).done(function(data){
- 
-       let dom = ``;
-       
- 
-       if(jQuery.isEmptyObject(data))
-       { 
- 
-           dom = ` <div class="jumbotron text-center">
- 
-                       <h3>No Activity Found</h3>
- 
-                       <p>You may want to add a new activity</p>
- 
-                   </div>
-               `;
- 
-       }else{
-  */
-         /*   $('#activity-table').show();
- 
-           $('#tb').html(); //remove clear content
- 
-           $.each(data, function(i, activitylist){
- 
-             console.log(activitylist.length)
- 
-             $.each(activitylist, function(i, activity){
- 
-         
-               let hist = ``;
- 
-               if(jQuery.isEmptyObject(activity.history) )
-               {
-                 hist = `<td><p>No recent update </p></td>`;
-               }else{
-                 hist = `<td>`+ activity.history[0].activity_type + `</td>`;
-               }
- 
-             dom =` <tr>
-                     <td>Put date here</td>
-                     <td>`+activity.activity+`</td>
-                     <td>`+activity.status+`</td>
-                     <td>`+activity.request_ip+`</td>
-                     <td>`+activity.user.name+`</td>
-                     <td>`+activity.created_at+`</td>
-                     `+hist+`
-                     <td>`+activity.updated_at+`</td>
-                     <td>`+activity.updated_at+`</td>
-                     <td><a class="btn btn-primary" href="">Details</a></td>
-               </tr> `;
- 
-               $('#tb').append(dom);
- 
-             });
- 
-           });
- 
-       }
- 
-     }); */
+      url: '/get/{{ $activity->id }}/history'
+
+    }).done(function(data){
+
+        console.log(data)
+
+        if(jQuery.isEmptyObject(data))
+        {
+
+          $('#dateRange').hide(); //You dont want to show datepicker if activity has no history
+
+          $('#emptab').fadeIn('slow');
+        
+        }else{
+
+          makeHistoryTable(data);
+        }
+
+    });
+
+
+    $('#find').click(function(e){
+
+      e.preventDefault();
+
+     var datefrom = $('#dateFrom')
+
+      var dateto = $('#dateTo')
+
+      var from = datePickerisEmpty(datefrom, $('#dferror'))
+
+      var to =  datePickerisEmpty(dateto, $('#dterror'))
+
+        if(from && to)
+        {
+          $.ajax({
+            url: '/get/{{$activity->id}}/history-range',
+            data: {
+
+              'dateFrom' : datefrom.val(),
+              'dateTo' : dateto.val()
+            }
+          }).done(function(data){
+
+            if(jQuery.isEmptyObject(data))
+            {
+
+              $('#tab').html('');
+
+              $('#emptab').fadeIn(3000);
+            
+            }else{
+
+              makeHistoryTable(data);
+            }
+
+          });
+
+        }
+
+    });
+
+    function datePickerisEmpty(picker, error)
+    {
+
+      if(picker.val() == '')
+      {
+        error.show()
+
+        return false;
+      
+      }else{
+
+        error.hide();
+
+        return true;
+      }
+    }
+
+
+    function makeHistoryTable(data)
+    {
+      var innerTable = [];
+
+      $.each(data, function(i , history){
+
+         var tablerow = `  <tr>
+                              <td>
+                                  <p>
+
+                                      `+ history.username + ` <br>
+
+                                      <a href="javascript:void(0)"  data-toggle="modal" data-target="#user">
+                                          <i class="fas fa-user-md fa-sm fa-fw mr-2 text-gray-400"></i> view
+                                      </a> 
+                                      
+                                  </p>
+                              </td>
+
+                              <td>
+                                  ` + history.request_ip + `
+                              </td>
+
+                              <td>
+                                    ` + history.activity_type + `
+                              </td>
+
+                              <td>
+                                  ` + history.activity_remarks + `
+                              </td>
+
+                              <td>
+                                    `+ history.date+`
+                              </td>
+
+                              <td>
+                                    `+ history.time+`
+                              </td>
+
+                          </tr> `
+
+          innerTable.push(tablerow);             
+
+      });
+
+      $('#tab').html(innerTable);  
+    }
  
  </script> 
 
