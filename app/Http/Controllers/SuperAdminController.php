@@ -16,7 +16,7 @@ class SuperAdminController extends Controller
     {
         //check if auth user has super admin role
 
- /*        $this->middleware('isSuperAdmin'); */
+       $this->middleware('isSuperAdmin'); 
     }
 
 

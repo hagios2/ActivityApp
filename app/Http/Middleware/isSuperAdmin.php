@@ -17,7 +17,9 @@ class isSuperAdmin
     {
        if(auth()->user()->role === 'super_admin')
        {
-            return true;
+            return $next($request);
        }
+
+       abort(403);
     }
 }

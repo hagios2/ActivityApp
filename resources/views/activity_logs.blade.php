@@ -67,7 +67,7 @@
 
 <script>
 
-  getActivities('pending')
+  getActivities()
 
   function getActivities(request = null){
 
@@ -90,8 +90,7 @@
     }).done(function(data){
 
       let dom = ``;
-      
-      console.log(data);
+    
 
       if(jQuery.isEmptyObject(data))
       { 
@@ -111,11 +110,15 @@
 
           $('#tb').html(''); //remove clear content
 
+          console.log(Object.keys(data)[0])
+
+          var k = 0;
+
           $.each(data, function(i, activitylist){
 
-            console.log(activitylist.length)
+              
 
-            $.each(activitylist, function(i, activity){
+            $.each(activitylist, function(a, activity){
 
         
               let hist = ``;
@@ -128,7 +131,7 @@
               }
 
             dom =` <tr>
-                    <td>Put date here</td>
+                    <td>`+Object.keys(data)[k]+`</td>
                     <td>`+activity.activity+`</td>
                     <td>`+activity.status+`</td>
                     <td>`+activity.request_ip+`</td>
@@ -143,6 +146,8 @@
               $('#tb').append(dom);
 
             });
+
+            k += 1;
 
           });
 

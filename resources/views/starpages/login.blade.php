@@ -14,7 +14,8 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="{{ asset('js/app.js') }}"></script>
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -33,7 +34,38 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+
+              <div class="col-lg-6 d-none d-lg-block">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="https://www.resume4dummies.com/wp-content/uploads/2020/02/customer-service-representative-resume-1194x882.jpg" class="d-block" alt="..." style="max-height:500px;">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://www.opustech.co.uk/wp-content/uploads/2017/04/customer_service-1.jpg" class="d-block " style="height:500px;" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://www.startupdonut.co.uk/sites/default/files/delivering-better-customer-service-by-phone_662750800.jpg" class="d-block "  style="max-height:500px;" alt="...">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+
+              </div>
+              
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">

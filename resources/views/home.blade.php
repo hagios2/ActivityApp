@@ -2,21 +2,21 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        {{-- <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
-        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
-    </nav>
-
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  {{--     <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li> --}}
+{{--             <li class="breadcrumb-item"><a href="/view-daily-activity">Activity</a></li> --}}
+      <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
     
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
     </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row  h-100 justify-content-center align-items-center" >
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -79,7 +79,7 @@
             </div>
 
             <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+         {{--    <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -95,7 +95,7 @@
               </div>
             </div>
           </div>
-
+ --}}
           <!-- Content Row -->
 
 

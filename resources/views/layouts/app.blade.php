@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('/storage/images/logo.jpg') }}" />
+    <link rel="shortcut icon" href="https://npontu.com/UI/img/NpontuLogostroke.png" />
 
     <title>{{ 'Activity Test App' }}</title>
 
@@ -45,9 +45,9 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-          <img style="width:3rem;" src="{{ asset('/storage/images/logo.jpg') }}" />
+          <img style="width:3rem;" src="https://npontu.com/UI/img/NpontuLogostroke.png" />
         </div>
-        <div class="sidebar-brand-text mx-3">Intern</div>
+        <div class="sidebar-brand-text mx-3">Npontu</div>
       </a>
 
       <!-- Divider -->
@@ -77,8 +77,8 @@
         <div id="collapseTwo0" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Preferences:</h6>
-            <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-            <a class="collapse-item" href="/password/reset">Change Password</a>
+            <a class="collapse-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+            <a class="collapse-item" href="#">Change Password</a>
           </div>
         </div>
       </li>
@@ -345,11 +345,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/login">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                          {{--   @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="/register">{{ __('Register') }}</a>
                                 </li>
-                            @endif            
+                            @endif        --}}     
                         </ul>
                     </div>
                 </div>

@@ -40,12 +40,6 @@ class ActivityController extends Controller
             });
 
         }
-
-        /* dailyActivity->his */
-
-        /* dd($dailyActivities); */
-
-      /*  $dailyActivityCollection = \collect(); */
         
         foreach($dailyActivities as $dailyItems)
         {
@@ -59,13 +53,9 @@ class ActivityController extends Controller
                {
                    $history->user;
                }
-                
+               
 
                 $dailyActivity->user;
-
-           /*      $dailyActivity->history->user; */
-
-               // $dailyActivityCollection->add($dailyActivity);
 
             }
          
