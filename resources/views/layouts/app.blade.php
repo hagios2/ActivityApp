@@ -72,13 +72,13 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo0" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>User Preference</span>
+          <span>Preference</span>
         </a>
         <div id="collapseTwo0" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Preferences:</h6>
             <a class="collapse-item" href="/user-preference"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-            <a class="collapse-item" href="forgot-password.html">Change Password</a>
+            <a class="collapse-item" href="/password/reset">Change Password</a>
           </div>
         </div>
       </li>

@@ -53,23 +53,31 @@ class SuperAdminController extends Controller
     }
 
 
-    public function blockMember(User $user)
+    public function blockMember(User $personnel)
     {
 
-        $user->update(['isActive' => false]);
+        $personnel->update(['isActive' => false]);
 
-
-
-        return response()->json(['status' => $user->name.' blocked']);
+        return back()->with('success', $personnel->name.' blocked');
     }
 
 
 
-    public function unBlockMember(User $user)
+    public function unBlockMember(User $personnel)
     {
 
-        $user->update(['isActive' => true]);
+        $personnel->update(['isActive' => true]);
 
-        return response()->json(['status' => $user->name.' unblocked']);
+
+        return back()->with('success', $personnel->name.' unblocked');
+
+    }
+
+
+    public function viewPersonnels()
+    {
+        $personnels = User::where('role', '!=', 'super_admin')->paginate(5);
+
+        return view('view_personnels', compact('personnels'));
     }
 }

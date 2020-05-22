@@ -60,6 +60,7 @@ Route::fallback(function () {
 });
 
 
+Route::get('change-passowrd', );
 
 
 /* 
@@ -71,3 +72,12 @@ Route::get('/add-new-personnel', 'SuperAdminController@showForm')->name('new.mem
 Route::post('/add-new-personnel', 'SuperAdminController@addNewMember');
 
 Route::get('/edit/{personnel}', 'SuperAdminController@addNewMember');
+
+Route::get('/view-personnels', 'SuperAdminController@viewPersonnels');
+
+Route::post('/personnel/{personnel}/block', 'SuperAdminController@blockMember' );
+
+Route::post('/personnel/{personnel}/unblock', 'SuperAdminController@unBlockMember' );
+
+
+Auth::routes();
