@@ -26,7 +26,7 @@ class PersonnelResource extends JsonResource
 
             'Phone' => $user->phone,
 
-            'Device Ip' => $this->request_ip,
+            'Device_Ip' => $this->request_ip,
 
             'last_login' => $user->last_login
 

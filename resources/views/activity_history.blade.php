@@ -132,6 +132,7 @@
               </div>
               
             </div>
+
           </div>
 
     </div>
@@ -140,10 +141,8 @@
 
 </div>
 
-
-
 <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Personnel Details</h5>
@@ -151,22 +150,13 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body" id="mbody"></div>
+        <div class="modal-body d-flex justify-content-center" id="mbody" ></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="/logout" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            Logout
-          </a>
-
-          <form id="logout-form" action="/logout" method="POST" style="display: none;">
-            @csrf
-        </form>
         </div>
       </div>
     </div>
   </div>
-
 
   <script>
 
@@ -314,7 +304,36 @@
 
             console.log(data);
 
-            $('#mbody').html();
+           var user = ` <div class="d-flex justify-content-center " style="width:100%;">
+                          <div class="card border-left-primary shadow">
+                            <div class="card-body" style="width:100%;">
+                            <div >
+                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">`+data.name+`</div>
+                                <img src="  https://i.dlpng.com/static/png/6728146_preview.png" style="width: 3rem;" class="rounded-img" alt=""> <br>
+                            </div>
+                            <div>
+                              <label for="" >Name</label>&emsp;&emsp;&emsp;&emsp;&emsp;`+data.name+` <br>
+                            </div>
+                            <div>
+                              <label for="">Email</label>&emsp;&emsp;&emsp;&emsp;&emsp;`+data.email+`<br>
+                            </div>
+
+                            <div>
+                              <label for="">Phone</label>&emsp;&emsp;&emsp;&emsp;&emsp;`+data.Phone+`<br>
+                            </div>
+
+                            <div >
+                              <label for="">Last Login</label>&emsp;&emsp;&emsp;&emsp;`+data.last_login+`<br>
+                            </div>
+
+                            <div>
+                              <label for="">Device IP</label>&emsp;&emsp;&emsp;&emsp;`+data.Device_Ip+`
+                            </div>
+                          </div>
+                      </div> 
+                    </div>`
+
+            $('#mbody').html(user);
 
         });
     }
