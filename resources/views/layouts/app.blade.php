@@ -324,7 +324,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img  src="{{ asset('/storage/images/logo.jpg') }}" style="max-width:2rem; display:inline;" alt="" srcset="">
+                        <img  src="https://npontu.com/UI/img/NpontuLogostroke.png" style="max-width:3rem; display:inline;" alt="" srcset="">
                         <strong>
                             Activity App
                         </strong>
