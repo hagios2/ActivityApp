@@ -29,11 +29,11 @@ class SuperAdminController extends Controller
     public function addNewMember(NewMemberRequest $request)
     {
 
-        $password = Hash::make(str_random(8));
+        $password = str_random(8);
 
         $newUser = User::create([
 
-            'password' => $password,
+            'password' =>  Hash::make($password),
 
             'isActive' => true,
 
@@ -47,7 +47,7 @@ class SuperAdminController extends Controller
 
         ]);
 
-        NewPersonnelsJob::dispatch($newUser, $password);
+        NewPersonnelsJob::dispatch($newUser, $password); 
 
         return back()->withSuccess('Added new Personnel successfully');
     }
